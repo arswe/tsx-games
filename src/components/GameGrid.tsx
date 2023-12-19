@@ -50,6 +50,6 @@ const GameGrid = ({ gameQuery }: Props) => {
       </SimpleGrid>
     </InfiniteScroll>
   );
-};
+  };
 
 export default GameGrid;
