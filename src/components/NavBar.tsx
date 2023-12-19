@@ -14,7 +14,7 @@ const NavBar = ({ onSearch }: Props) => {
       <SearchInput onSearch={onSearch} />
       <ColorModeSwitch />
     </HStack>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;

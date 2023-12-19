@@ -1,11 +1,11 @@
-import { SimpleGrid, Text } from "@chakra-ui/react";
-import React from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { GameQuery } from "../App";
-import useGames from "../hooks/useGames";
-import GameCard from "./GameCard";
-import GameCardContainer from "./GameCardContainer";
-import GameCardSkeleton from "./GameCardSkeleton";
+import { SimpleGrid, Text } from '@chakra-ui/react';
+import React from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { GameQuery } from '../App';
+import useGames from '../hooks/useGames';
+import GameCard from './GameCard';
+import GameCardContainer from './GameCardContainer';
+import GameCardSkeleton from './GameCardSkeleton';
 
 interface Props {
   gameQuery: GameQuery;
@@ -20,11 +20,7 @@ const GameGrid = ({ gameQuery }: Props) => {
   const fetchGamesCount = data?.pages.reduce((acc, page) => acc + page.results.length, 0) || 0;
 
   return (
-
-   
-      <InfiniteScroll 
-      
-      
+    <InfiniteScroll
       dataLength={fetchGamesCount}
       hasMore={!!hasNextPage}
       next={() => fetchNextPage()}
@@ -33,34 +29,26 @@ const GameGrid = ({ gameQuery }: Props) => {
         <Text>
           <b>Yay! You have seen it all</b>
         </Text>
-      }
-
-
-      
-      > 
-    <SimpleGrid
-      columns={{ sm: 2, md: 3, lg: 3, xl: 4 }}
-      padding="10px"
-      spacing={6}
-    >
-      {isLoading &&
-        skeletons.map((skeleton) => (
-          <GameCardContainer key={skeleton}>
-            <GameCardSkeleton />
-          </GameCardContainer>
-        ))}
-
-        {data?.pages.map((page, index) => <React.Fragment key={index}>
-          {page.results.map((game) => (
-            <GameCardContainer key={game.id}>
-              <GameCard game={game} />
+      }>
+      <SimpleGrid columns={{ sm: 2, md: 3, lg: 3, xl: 4 }} padding='10px' spacing={6}>
+        {isLoading &&
+          skeletons.map((skeleton) => (
+            <GameCardContainer key={skeleton}>
+              <GameCardSkeleton />
             </GameCardContainer>
           ))}
-        </React.Fragment> )}
-    </SimpleGrid>
+
+        {data?.pages.map((page, index) => (
+          <React.Fragment key={index}>
+            {page.results.map((game) => (
+              <GameCardContainer key={game.id}>
+                <GameCard game={game} />
+              </GameCardContainer>
+            ))}
+          </React.Fragment>
+        ))}
+      </SimpleGrid>
     </InfiniteScroll>
-        
-   
   );
 };
 

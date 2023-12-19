@@ -4,7 +4,7 @@ import useGenre from '../hooks/useGenre';
 import usePlatform from '../hooks/usePlatform';
 
 interface Props {
-  gameQuery: GameQuery
+  gameQuery: GameQuery;
 }
 
 const GameHeading = ({ gameQuery }: Props) => {
@@ -14,8 +14,10 @@ const GameHeading = ({ gameQuery }: Props) => {
   const heading = `${platform?.name || ''} ${genre?.name || ''} Games`;
 
   return (
-    <Heading as='h1' marginY={5} fontSize='3xl'>{heading}</Heading>
-  )
-}
+    <Heading as='h1' marginY={5} fontSize='3xl'>
+      {heading}
+    </Heading>
+  );
+};
 
-export default GameHeading
+export default GameHeading;
