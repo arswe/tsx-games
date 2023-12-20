@@ -11,7 +11,7 @@ const GameDetailsPage = () => {
 
   return (
     <Box>
-      <Heading>{game?.name}</Heading>
+      <Heading fontSize='3xl'>{game?.name}</Heading>
       <Text>{game?.description_raw}</Text>
     </Box>
   );
