@@ -2,7 +2,7 @@ import { useInfiniteQuery } from '@tanstack/react-query';
 import ms from 'ms';
 import Game from '../entities/Game';
 import APIClient, { FetchResponse } from '../services/api-client';
-import useGameQueryStore from '../store';
+import useGameQueryStore from '../stores/store';
 
 const apiClient = new APIClient<Game>('/games');
 
@@ -25,6 +25,7 @@ const useGames = () => {
       return lastPage.next ? allPages.length + 1 : undefined;
     },
     staleTime: ms('24h'),
+    initialPageParam: 1, // Add the initialPageParam property
   });
 };
 
