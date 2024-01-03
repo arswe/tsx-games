@@ -1,16 +1,24 @@
-import { Button, Heading, HStack, Image, List, ListItem, Spinner } from '@chakra-ui/react';
-import useGenres from '../hooks/useGenres';
-import getCroppedImageUrl from '../services/image-url';
-import useGameQueryStore from '../stores/store';
+import {
+  Button,
+  Heading,
+  HStack,
+  Image,
+  List,
+  ListItem,
+  Spinner,
+} from '@chakra-ui/react'
+import useGenres from '../hooks/useGenres'
+import getCroppedImageUrl from '../services/image-url'
+import useGameQueryStore from '../stores/store'
 
 const GenreList = () => {
-  const { data, isLoading, error } = useGenres();
-  const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
-  const setSelectedGenreId = useGameQueryStore((s) => s.setGenreId);
+  const { data, isLoading, error } = useGenres()
+  const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId)
+  const setSelectedGenreId = useGameQueryStore((s) => s.setGenreId)
 
-  if (error) return null;
+  if (error) return null
 
-  if (isLoading) return <Spinner />;
+  if (isLoading) return <Spinner />
 
   return (
     <>
@@ -41,7 +49,7 @@ const GenreList = () => {
         ))}
       </List>
     </>
-  );
-};
+  )
+}
 
-export default GenreList;
+export default GenreList
