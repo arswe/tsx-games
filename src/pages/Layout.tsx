@@ -1,7 +1,7 @@
-import { Box } from '@chakra-ui/react';
-import { Outlet } from 'react-router-dom';
-import Footer from '../components/Footer';
-import NavBar from '../components/NavBar';
+import { Box } from '@chakra-ui/react'
+import { Outlet } from 'react-router-dom'
+import Footer from '../components/Footer'
+import NavBar from '../components/NavBar'
 
 const Layout = () => {
   return (
@@ -12,7 +12,7 @@ const Layout = () => {
       </Box>
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

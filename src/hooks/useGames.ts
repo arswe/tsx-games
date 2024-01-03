@@ -1,13 +1,13 @@
-import { useInfiniteQuery } from '@tanstack/react-query';
-import ms from 'ms';
-import Game from '../entities/Game';
-import APIClient, { FetchResponse } from '../services/api-client';
-import useGameQueryStore from '../stores/store';
+import { useInfiniteQuery } from '@tanstack/react-query'
+import ms from 'ms'
+import Game from '../entities/Game'
+import APIClient, { FetchResponse } from '../services/api-client'
+import useGameQueryStore from '../stores/store'
 
-const apiClient = new APIClient<Game>('/games');
+const apiClient = new APIClient<Game>('/games')
 
 const useGames = () => {
-  const gameQuery = useGameQueryStore((s) => s.gameQuery);
+  const gameQuery = useGameQueryStore((s) => s.gameQuery)
 
   return useInfiniteQuery<FetchResponse<Game>, Error>({
     queryKey: ['games', gameQuery],
@@ -22,11 +22,11 @@ const useGames = () => {
         },
       }),
     getNextPageParam: (lastPage, allPages) => {
-      return lastPage.next ? allPages.length + 1 : undefined;
+      return lastPage.next ? allPages.length + 1 : undefined
     },
     staleTime: ms('24h'),
     initialPageParam: 1, // Add the initialPageParam property
-  });
-};
+  })
+}
 
-export default useGames;
+export default useGames
