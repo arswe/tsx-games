@@ -9,7 +9,6 @@ const GameScreenshots = ({ gameId }: Props) => {
   const { data, isLoading, error } = useScreenshots(gameId)
 
   if (isLoading) return null
-
   if (error) throw error
 
   return (
