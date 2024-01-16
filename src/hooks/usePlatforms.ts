@@ -7,11 +7,11 @@ import APIClient from '../services/api-client'
 const apiClient = new APIClient<Platform>('/platforms/lists/parents')
 
 const usePlatforms = () =>
-  useQuery({
-    queryKey: ['platforms'],
-    queryFn: apiClient.getAll,
-    staleTime: ms('24h'),
-    initialData: platforms,
-  })
+	useQuery({
+		queryKey: ['platforms'],
+		queryFn: apiClient.getAll,
+		staleTime: ms('24h'),
+		initialData: platforms,
+	})
 
 export default usePlatforms
